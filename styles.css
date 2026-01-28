@@ -40,6 +40,34 @@ img {
     height: auto;
     border-radius: 10px;
     margin: 10px 0;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* smooth effect */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Fade in & scale effect when page loads */
+img.animated-img {
+    animation: fadeScale 1s forwards;
+    animation-delay: 0.2s; /* slight delay for first image */
+}
+
+/* Second image delay example */
+img.animated-img:nth-child(2) {
+    animation-delay: 0.6s; 
+}
+
+/* Keyframes for fade + scale animation */
+@keyframes fadeScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Optional hover effect */
+img.animated-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 button {
     background: #d63384;
@@ -67,4 +95,5 @@ footer {
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+
 }
